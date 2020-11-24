@@ -1,0 +1,164 @@
+@import "files/fontiran.css";
+
+body {
+    font-family: IRANSans !important;
+}
+
+li {
+    list-style: none;
+}
+
+navbar {
+    z-index: 1000;
+    position: absolute;
+}
+.dropdown .fa-user-secret {
+    width: 43px;
+    height: 44px;
+    color: #000;
+    border-radius: 100%;
+    background-color: #eee;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.dropdown .fa-envelope {
+    width: 43px;
+    height: 44px;
+    color: #000;
+    border-radius: 100%;
+    background-color: #eee;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 25px;
+}
+.dropdown .fa-tasks {
+    width: 43px;
+    height: 44px;
+    color: #000;
+    border-radius: 100%;
+    background-color: #eee;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 25px;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.dropleft .dropdown-toggle::before {
+    display: none;
+}
+.badge-admin {
+    position: absolute;
+    width: 30px;
+    padding: 8px;
+    top: 0;
+    left: -5px;
+}
+.dropdown .fa-windows {
+    width: 43px;
+    height: 44px;
+    color: #000;
+    border-radius: 100%;
+    background-color: #eee;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+.footer {
+    background-color: darkslategrey;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+}
+.content {
+    border: 3px solid #eee;
+    height: 174px;
+    background-color: indianred;
+}
+.content i {
+    color: #fff;
+    text-align: left;
+    margin-top: 12px;
+    position: absolute;
+    left: 26%;
+    top: 35px;
+}
+.content p {
+    color: #fff;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px #8e9092;
+    position: absolute;
+    right: 30%;
+    top: 25%;
+}
+.content span {
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px #8e9092;
+    position: absolute;
+    right: 35%;
+    bottom: 10%;
+}
+aside {
+    background-color: #16202f;
+    display: none;
+    min-height: 620px;
+    position: absolute;
+    right: 0;
+    top: 75px;
+    width: 250px;
+    border-radius: 5px;
+}
+aside ul li {
+    color: #fff;
+    line-height: 70px;
+    cursor: pointer;
+}
+aside ul li i {
+    color: #fff;
+}
+aside ul li a {
+    color: #fff;
+    cursor: pointer;
+}
+aside ul ul a:hover {
+    color: salmon;
+    text-decoration: none;
+}
+.toggleMenu {
+    background-color: rgb(27, 38, 54);
+    position: relative;
+    right: 0;
+    text-align: center;
+    width: 98%;
+    transition: all 200ms linear;
+    border-radius: 10px;
+    padding: 3px;
+}
+aside ul ul li:hover {
+    background-color: rgba(250, 128, 114, 0.7);
+    width: 100%;
+    border-radius: 5px;
+}
+.tree a {
+    color: #000;
+    text-decoration: none;
+}
+.tree {
+    background-color: salmon;
+    color: #000;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.tree ul li {
+    background-color: cornflowerblue;
+    color: #000;
+    text-decoration: none;
+}
+.dz-hidden-input {
+    width: unset !important;
+}
