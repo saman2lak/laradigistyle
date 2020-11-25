@@ -122,6 +122,15 @@ Dropzone.options.urlImageUser = {
     $("#urlImageUser1").val(response);
   }
 };
+Dropzone.options.urlImageUserEdit = {
+  paramName: "file",
+  // The name that will be used to transfer the file
+  maxFilesize: 100,
+  // MB
+  success: function success(file, response) {
+    $("#urlImageUser1Edit").val(response);
+  }
+};
 
 /***/ }),
 

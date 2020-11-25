@@ -18,6 +18,14 @@ class UserController extends Controller
         return $filename;
     }
 
+    public function uploadUserEdit(Request $request)
+    {
+        $file = $request->file('file');
+        $filename = time().rand(100,900).$file->getClientOriginalName();
+        $file->move('userProfile',$filename);
+        return $filename;
+    }
+
     public function approve(Request $request)
     {
         $status = User::find($request->id)->status;
@@ -88,7 +96,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return User::find($id);
     }
 
     /**
@@ -100,7 +108,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::find($id);
+        $users->name=$request->fnameEdit;
+        $users->lname=$request->lnameEdit;
+        $users->email=$request->emailEdit;
+        $users->rule=$request->ruleEdit;
+        $users->image=$request->image;
+
+        if($users->update()){
+            return $users;
+        }
     }
 
     /**
@@ -111,6 +128,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user =User::find($id)->delete();
+        if($user){
+            return 'true';
+        }
     }
 }

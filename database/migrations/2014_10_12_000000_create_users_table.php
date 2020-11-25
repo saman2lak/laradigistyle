@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('lname')->nullable();
             $table->tinyInteger('rule');
             $table->tinyInteger('status');
-            $table->string('image');
+            $table->string('image')->nullable();;
             $table->string('nationalCode')->nullable();
             $table->string('phone')->nullable();
             $table->string('dateOfBirth')->nullable();

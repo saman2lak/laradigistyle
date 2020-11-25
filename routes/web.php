@@ -26,6 +26,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     // User
     Route::resource('user', UserController::class);
     Route::post('uploadUser',[UserController::class,'uploadUser']);
+    Route::post('uploadUserEdit',[UserController::class,'uploadUserEdit']);
     Route::post('approve',[UserController::class,'approve']);
 
     // Category

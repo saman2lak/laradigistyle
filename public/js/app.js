@@ -76057,6 +76057,46 @@ var app = new Vue({
   },
   created: function created() {},
   methods: {
+    editUser: function editUser(id) {
+      var image = $('#urlImageUser1Edit').val();
+      var idEdit = $('#idEdit').val();
+      var fnameEdit = $('#fnameEdit').val();
+      var lnameEdit = $('#lnameEdit').val();
+      var emailEdit = $('#emailEdit').val();
+      var ruleEdit = $('#ruleEdit').val();
+      axios.put("/admin/user/" + idEdit, {
+        fnameEdit: fnameEdit,
+        lnameEdit: lnameEdit,
+        emailEdit: emailEdit,
+        ruleEdit: ruleEdit,
+        image: image
+      }).then(function (response) {
+        location.reload();
+        app.SweetAlertToast("عملیات با موفقیت انجام شد!", "success");
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    dataToModal: function dataToModal(id) {
+      axios.get("/admin/user/" + id + "/edit", {}).then(function (response) {
+        $("#fnameEdit").val(response.data.name);
+        $("#lnameEdit").val(response.data.lname);
+        $("#emailEdit").val(response.data.email);
+        $("#idEdit").val(response.data.id);
+        $("#ruleEdit").val(response.data.rule);
+        $("#urlImageUser1Edit").val(response.data.image);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      axios["delete"]("/admin/user/" + id, {}).then(function (response) {
+        app.SweetAlertToast("عملیات با موفقیت انجام شد!", "success");
+        location.reload();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     approveUser: function approveUser(id) {
       axios.get("/admin/getusers", {}).then(function (response) {})["catch"](function (error) {
         console.log(error);
