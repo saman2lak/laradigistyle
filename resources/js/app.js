@@ -54,18 +54,17 @@ const app = new Vue({
         attrItem_id: "",
         brand_id: "",
         category_id: "",
-        discount_id: "",
         brandName: "",
         brandCountry: "",
-        date:"",
-        dateend:"",
-        discountname:"",
-        discountvalue:"",
-        fname:"",
-        lname:"",
-        email:"",
-        password:"",
-        rule:"",
+        date: "",
+        dateend: "",
+        discountname: "",
+        discountvalue: "",
+        fname: "",
+        lname: "",
+        email: "",
+        password: "",
+        rule: "",
     },
     created: function () {
     },
@@ -98,13 +97,13 @@ const app = new Vue({
         },
         dataToModal: function (id) {
             axios
-                .get("/admin/user/" + id +"/edit", {}).then(response=> {
-                    $("#fnameEdit").val(response.data.name);
-                    $("#lnameEdit").val(response.data.lname);
-                    $("#emailEdit").val(response.data.email);
-                    $("#idEdit").val(response.data.id);
-                    $("#ruleEdit").val(response.data.rule);
-                    $("#urlImageUser1Edit").val(response.data.image);
+                .get("/admin/user/" + id + "/edit", {}).then(response => {
+                $("#fnameEdit").val(response.data.name);
+                $("#lnameEdit").val(response.data.lname);
+                $("#emailEdit").val(response.data.email);
+                $("#idEdit").val(response.data.id);
+                $("#ruleEdit").val(response.data.rule);
+                $("#urlImageUser1Edit").val(response.data.image);
             })
                 .catch(function (error) {
                     console.log(error);
@@ -125,8 +124,7 @@ const app = new Vue({
         },
         approveUser: function (id) {
             axios
-                .get("/admin/getusers", {
-                })
+                .get("/admin/getusers", {})
                 .then(function (response) {
                 })
                 .catch(function (error) {
@@ -180,18 +178,21 @@ const app = new Vue({
                 });
         },
         saveDiscount: function () {
+            var x = $('.select2').val();
             axios
                 .post("/admin/discountsave", {
                     name: this.discountname,
                     value: this.discountvalue,
                     begindate: this.date,
                     enddate: this.dateend,
+                    productId: x,
                 })
                 .then(function (response) {
                     app.SweetAlertToast(
                         "عملیات با موفقیت انجام شد!",
                         "success"
                     );
+
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -415,26 +416,6 @@ const app = new Vue({
                     console.log(error);
                 });
             var btn = document.getElementById("addBrand");
-            btn.innerHTML = "در حال ارسال";
-            setTimeout(function () {
-                btn.innerHTML = "ارسال";
-            }, 3000);
-        },
-        addDiscount: function () {
-            axios
-                .post("/admin/adddiscount", {
-                    id: this.discount_id
-                })
-                .then(function (response) {
-                    app.SweetAlertToast(
-                        "عملیات با موفقیت انجام شد!",
-                        "success"
-                    );
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            var btn = document.getElementById("addDiscount");
             btn.innerHTML = "در حال ارسال";
             setTimeout(function () {
                 btn.innerHTML = "ارسال";

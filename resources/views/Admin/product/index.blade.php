@@ -183,18 +183,6 @@
                                             ارسال
                                         </button>
                                     </div>
-                                    <div class="form-group d-flex">
-                                        <label for="attr">تخفیف </label>
-                                        <select class="form-control mr-3 col-7" id="exampleFormControlSelect1" v-model="discount_id">
-                                            @foreach ($Discounts as $discount)
-                                                <option value="{{ $discount->id }}">{{ $discount->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <button type="submit" id="addDiscount" class="btn btn-primary mr-3"
-                                                v-on:click="addDiscount">
-                                            ارسال
-                                        </button>
-                                    </div>
 
                                 </div>
                             </div>

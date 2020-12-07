@@ -103,6 +103,7 @@ $(document).ready(function () {
       $(".sidebar").hide();
     }
   });
+  $('.select2').select2();
 });
 Dropzone.options.urlupload = {
   paramName: "file",

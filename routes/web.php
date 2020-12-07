@@ -44,14 +44,13 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
     // Product
     Route::get('product',[ProductController::class,'index']);
+    Route::get('productShow',[ProductController::class,'show']);
     Route::post('addproduct',[ProductController::class,'addproduct']);
     Route::post('productimage',[ProductController::class,'image']);
     Route::post('addsize',[ProductController::class,'size']);
     Route::post('addattr',[ProductController::class,'attr']);
     Route::post('addattritem',[ProductController::class,'attritem']);
     Route::post('addbrand',[ProductController::class,'brand']);
-    Route::post('adddiscount',[ProductController::class,'discount']);
-
     // Attribute
     Route::post('attributegroup',[AttributeController::class,'attributegroup']);
     Route::post('attribute',[AttributeController::class,'attribute']);

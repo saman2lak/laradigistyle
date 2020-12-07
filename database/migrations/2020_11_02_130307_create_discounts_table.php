@@ -19,6 +19,7 @@ class CreateDiscountsTable extends Migration
             $table->unsignedInteger('value');
             $table->string('beginDate');
             $table->string('endDate');
+            $table->integer('product_id');
         });
     }
 

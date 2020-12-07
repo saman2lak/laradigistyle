@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Productsize extends Model
 {
     use HasFactory;
-    protected $table = 'productsize';
+    protected $table = 'product_size';
     public $timestamps = false;
 }

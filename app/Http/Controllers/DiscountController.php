@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discount;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class DiscountController extends Controller
@@ -17,7 +18,8 @@ class DiscountController extends Controller
 
     public function create()
     {
-        return view('Admin.discount.create');
+        $products =Product::all();
+        return view('Admin.discount.create',compact('products'));
     }
 
     public function store(Request $request)
@@ -27,6 +29,7 @@ class DiscountController extends Controller
         $brand->value = $request->value;
         $brand->beginDate = $request->begindate;
         $brand->endDate = $request->enddate;
+        $brand->product_id = $request->productId;
         if ($brand->save()){
             return $brand;
         }

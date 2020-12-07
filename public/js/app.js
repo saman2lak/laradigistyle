@@ -76042,7 +76042,6 @@ var app = new Vue({
     attrItem_id: "",
     brand_id: "",
     category_id: "",
-    discount_id: "",
     brandName: "",
     brandCountry: "",
     date: "",
@@ -76135,11 +76134,13 @@ var app = new Vue({
       });
     },
     saveDiscount: function saveDiscount() {
+      var x = $('.select2').val();
       axios.post("/admin/discountsave", {
         name: this.discountname,
         value: this.discountvalue,
         begindate: this.date,
-        enddate: this.dateend
+        enddate: this.dateend,
+        productId: x
       }).then(function (response) {
         app.SweetAlertToast("عملیات با موفقیت انجام شد!", "success");
       })["catch"](function (error) {
@@ -76303,20 +76304,6 @@ var app = new Vue({
         console.log(error);
       });
       var btn = document.getElementById("addBrand");
-      btn.innerHTML = "در حال ارسال";
-      setTimeout(function () {
-        btn.innerHTML = "ارسال";
-      }, 3000);
-    },
-    addDiscount: function addDiscount() {
-      axios.post("/admin/adddiscount", {
-        id: this.discount_id
-      }).then(function (response) {
-        app.SweetAlertToast("عملیات با موفقیت انجام شد!", "success");
-      })["catch"](function (error) {
-        console.log(error);
-      });
-      var btn = document.getElementById("addDiscount");
       btn.innerHTML = "در حال ارسال";
       setTimeout(function () {
         btn.innerHTML = "ارسال";

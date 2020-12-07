@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/dropzone.min.css">
     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/select2.min.css">
 
 
 </head>
@@ -51,8 +52,8 @@
             <a href="/admin/product">
                 <li>افزودن محصول</li>
             </a>
-            <a href="#">
-                <li>new</li>
+            <a href="/admin/productShow">
+                <li>نمایش محصولات</li>
             </a>
         </ul>
 
@@ -115,6 +116,7 @@
 <script src="/js/dropzone.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/admin.js"></script>
+<script src="/js/select2.min.js"></script>
 <script src="/js/sweetalert2.all.min.js"></script>
 
 </body>

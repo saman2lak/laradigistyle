@@ -9,7 +9,11 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Image;
+use App\Models\image_product;
 use App\Models\Product;
+use App\Models\Products_attribute;
+use App\Models\Productsbrand;
+use App\Models\Productsize;
 use App\Models\Size;
 use Illuminate\Http\Request;
 
@@ -26,6 +30,16 @@ class ProductController extends Controller
         $Brands = Brand::all();
         $Discounts = Discount::all();
         return view('Admin.product.index',compact('category','Attributegroup','Attribute','Sizes','AttributeItems','Brands','Discounts'));
+    }
+
+    public function show()
+    {
+        $products = Product::all();
+        $images = image_product::all();
+        $brands = Productsbrand::all();
+        $productattrs = Products_attribute::all();
+        $sizes = Productsize::all();
+        return view('Admin.product.show',compact('products','images','brands','productattr'  ,'sizes'));
     }
 
     public function addproduct(Request $request){
@@ -73,16 +87,6 @@ class ProductController extends Controller
     {
         $product = Product::latest()->first();
         $product->brands()->attach($request->id);
-    }
-
-    public function discount(Request $request)
-    {
-        $product = Product::latest()->first();
-        $find = Product::find($product->id);
-        $find->discount_id = $request->id;
-        if ($find->update()){
-            return $find;
-        }
     }
 }
 

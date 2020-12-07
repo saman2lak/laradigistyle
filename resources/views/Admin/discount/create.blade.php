@@ -19,6 +19,14 @@
                                placeholder="عنوان مشخصه را وارد نمایید" v-model="discountvalue">
                     </div>
                     <div class="form-group">
+                        <label for="country">نام محصول</label>
+                        <select class="select2 form-control">
+                            @foreach($products as $product)
+                                <option value="{{$product->id}}">{{$product->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="country">تاریخ شروع</label>
                         <date-picker v-model="date"></date-picker>
                     </div>

@@ -41,5 +41,24 @@ class Product extends Model
         return $this->belongsToMany(Size::class);
     }
 
+    public function getDiscount($id)
+    {
+        $discount = $this->discounts()->where('product_id',$id)->get();
+        foreach ($discount as $value){
+            return $value->name;
+        }
+    }
+
+    public function categoryProduct($id)
+    {
+        $category = Category::find($id);
+        return $category->name;
+    }
+
+    public function getImageProduct($id){
+        $images = image_product::find($id);
+        return '<img src="/imageProduct/'.$images->image.'" width="100px" height="100px">';
+    }
+
 
 }
